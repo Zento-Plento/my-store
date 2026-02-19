@@ -1,1 +1,1 @@
-# my-store
+# Zento

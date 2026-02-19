@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Online Store</title>
+  <style>
+    body {
+      font-family: Arial;
+      background:#f4f4f4;
+      text-align:center;
+    }
+
+    .product {
+      background:white;
+      padding:20px;
+      margin:20px auto;
+      width:250px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    button {
+      background:black;
+      color:white;
+      padding:10px 15px;
+      border:none;
+      cursor:pointer;
+      border-radius:5px;
+    }
+
+    #cart {
+      position:fixed;
+      top:10px;
+      right:10px;
+      background:white;
+      padding:15px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>My Store</h1>
+
+<div class="product">
+  <h3>Gaming Mouse</h3>
+  <p>$25</p>
+  <button onclick="addToCart('Gaming Mouse',25)">Buy</button>
+</div>
+
+<div class="product">
+  <h3>Keyboard</h3>
+  <p>$40</p>
+  <button onclick="addToCart('Keyboard',40)">Buy</button>
+</div>
+
+<div id="cart">
+  <h3>Cart</h3>
+  <ul id="items"></ul>
+  <p>Total: $<span id="total">0</span></p>
+</div>
+
+<script>
+let total = 0;
+
+function addToCart(name, price){
+  const li = document.createElement("li");
+  li.textContent = name + " - $" + price;
+  document.getElementById("items").appendChild(li);
+
+  total += price;
+  document.getElementById("total").textContent = total;
+}
+</script>
+
+</body>
+</html>
